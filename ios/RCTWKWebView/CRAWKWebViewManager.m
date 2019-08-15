@@ -186,10 +186,10 @@ RCT_EXPORT_METHOD(removeData:(nonnull NSNumber *)reactTag
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTWKWebView *> *viewRegistry) {
-    RCTWKWebView *view = viewRegistry[reactTag];
-    if (![view isKindOfClass:[RCTWKWebView class]]) {
-      RCTLogError(@"Invalid view returned from registry, expecting RCTWKWebView, got: %@", view);
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, CRAWKWebView *> *viewRegistry) {
+    CRAWKWebView *view = viewRegistry[reactTag];
+    if (![view isKindOfClass:[CRAWKWebView class]]) {
+      RCTLogError(@"Invalid view returned from registry, expecting CRAWKWebView, got: %@", view);
     } else {
       [view removeData:types completionHandler:^(id result, NSError *error) {
         if (error) {
