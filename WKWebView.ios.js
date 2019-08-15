@@ -47,6 +47,18 @@ type ErrorEvent = {
 
 type Event = Object;
 
+const WebsiteDataTypes = {
+  DiskCache: 'WKWebsiteDataTypeDiskCache',
+  OfflineWebApplicationCache: 'WKWebsiteDataTypeOfflineWebApplicationCache',
+  MemoryCache: 'WKWebsiteDataTypeMemoryCache',
+  LocalStorage: 'WKWebsiteDataTypeLocalStorage',
+  Cookies: 'WKWebsiteDataTypeCookies',
+  SessionStorage: 'WKWebsiteDataTypeSessionStorage',
+  IndexedDBDatabases: 'WKWebsiteDataTypeIndexedDBDatabases',
+  WebSQLDatabases: 'WKWebsiteDataTypeWebSQLDatabases',
+}
+export { WebsiteDataTypes }
+
 const defaultRenderLoading = () => (
   <View style={styles.loadingView}>
     <ActivityIndicator />
@@ -458,6 +470,10 @@ class WKWebView extends React.Component {
 
   evaluateJavaScript = (js) => {
     return WKWebViewManager.evaluateJavaScript(this.getWebViewHandle(), js);
+  };
+
+  removeData = (types) => {
+    return WKWebViewManager.removeData(this.getWebViewHandle(), types)
   };
 
   /**
