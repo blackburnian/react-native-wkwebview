@@ -213,3 +213,7 @@ If you look at the source, the JavaScript side is mostly derived from React Nati
 ### Contribute
 
 We battle test this component against our app. However, we haven't use all the props so if something does not work as expected, please open an issue or PR.
+
+## Fork Notes
+
+This repo was forked from to add `removeData` functionality to clear data from `WKWebView`. These changes are based off of the changes [here](https://github.com/markdaws/react-native-wkwebview/commit/29bd30136c23ea0ace72af37ae012126c060f709), but that repo is not up to date with the base.
